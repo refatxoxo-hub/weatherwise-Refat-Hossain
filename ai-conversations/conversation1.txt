@@ -1,0 +1,16 @@
+Title: Choosing the Best Weather Data Source
+----------------------------------
+Tool: ChatGPT
+Date: 18-10-2025
+----------------------------------
+
+Me: I’m starting my Weather Advisor project and need to pick a weather data source. My options are fetch-my-weather, wttr.in, and OpenWeatherMap. Which one’s the best fit?
+AI: If you want simplicity and no API keys, go with wttr.in. It’s free, lightweight, and gives data in JSON. OpenWeatherMap offers richer data but requires an API key and setup time.
+
+Me: That makes sense. I only have a week to finish this, so I need something quick but still flexible. What are the risks if I use wttr.in?
+AI: Mainly three: (1) it only returns three days of forecast, (2) it might timeout occasionally, and (3) some fields could be missing. You can handle that with safe defaults and a fallback mock dataset.
+
+Me: Sounds good. Can you summarise my decision so I can put it in my reflection?
+AI: “I chose wttr.in to balance simplicity and flexibility, allowing focus on design and modular development while leaving room for later API upgrades.”
+
+Me: Perfect. Let’s lock that in.

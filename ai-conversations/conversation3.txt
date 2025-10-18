@@ -1,0 +1,16 @@
+Title: Handling Edge Cases and Safer Code
+----------------------------------
+Tool: ChatGPT
+Date: 18-10-2025
+----------------------------------
+
+Me: I’ve noticed some weird edge cases  empty locations, missing “chanceofrain”, and network timeouts. How can I fix these?
+AI: For empty location, raise a ValueError. For missing chanceofrain, use .get() with default 0. For timeouts, wrap the API call in try/except and use a mock dataset as fallback.
+
+Me: Okay, and what about when the API only returns 3 days but I ask for 5?
+AI: You can either accept 3 days (honest mode) or pad it up to 5 (UX mode). Honest mode is simpler for now.
+
+Me: I’ll go with honest mode and just add a print message if fewer days are returned.
+AI: Good idea — that gives clarity without complicating logic.
+
+Me: Awesome. Thanks! I’ll also add a _safe_get() helper to clean up nested lookups.

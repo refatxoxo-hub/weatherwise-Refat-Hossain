@@ -1,0 +1,22 @@
+Title: Fixing a Bug and Iterating the Design
+----------------------------------
+Tool: ChatGPT
+Date: 18-10-2025
+----------------------------------
+
+Me: My average rainfall calculation crashes with a KeyError when “chanceofrain” is missing. How can I fix it?
+AI: Use .get() and check if the list exists first:
+hourly = day.get("hourly", [])
+vals = [float(h.get("chanceofrain", 0)) for h in hourly if "chanceofrain" in h]
+avg = (sum(vals) / len(vals)) if vals else 0.0
+
+Me: That’s neat. Why is it safer?
+AI: Because it guards against missing keys and empty lists — no more division by zero or KeyErrors.
+
+Me: Got it. I also want to raise an error if the location is blank and clamp the forecast_days.
+AI: Sure:
+if not location or not isinstance(location, str):
+    raise ValueError("location must be a non-empty string")
+forecast_days = max(1, min(int(forecast_days or 5), 5))
+
+Me: Awesome. I tested it all edge cases work now. Thanks for helping refine it!

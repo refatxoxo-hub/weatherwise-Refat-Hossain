@@ -1,0 +1,23 @@
+Title: Improving Modular Design
+----------------------------------
+Tool: ChatGPT
+Date: 18-10-2025
+----------------------------------
+
+Me: My notebook is getting messy. How should I divide my code into modules?
+AI: weather_data.py → handles API calls and fallback
+nlp.py → parses user questions
+visuals.py → draws temperature and precipitation charts
+ui.py → menu, summariser, and chatbot interface
+
+Me: That helps. I also want a summarise() function that quickly describes today’s weather.
+AI: Try this:
+def summarise(data):
+    cur = data.get("current_condition", [{}])[0]
+    desc = cur.get("weatherDesc", [{}])[0].get("value", "N/A")
+    temp = cur.get("temp_C", "N/A")
+    wind = cur.get("windspeedKmph", "N/A")
+    hum  = cur.get("humidity", "N/A")
+    return f"Today: {desc}, {temp}°C, wind {wind} km/h, humidity {hum}%"
+
+Me: That’s perfect  I’ll include that in my UI file. Thanks!

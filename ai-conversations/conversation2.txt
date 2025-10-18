@@ -1,0 +1,25 @@
+Title: Defining Inputs, Outputs, and Pseudocode
+----------------------------------
+Tool: ChatGPT
+Date: 2025-10-18
+----------------------------------
+
+Me: Before writing any code, can we define the inputs and outputs for the main functions in my project?
+AI: Sure! The main ones are:
+1. get_weather_data(location, forecast_days)
+2. parse_weather_question(question)
+3. generate_weather_response(parsed_question, weather_data)
+
+Me: Great. What should each of them return?
+AI: get_weather_data → returns a dictionary with current conditions and a forecast list.
+parse_weather_question → returns a dictionary with location, period (today, tomorrow, next few days), and weather attribute (temperature, rain, etc.).
+generate_weather_response → returns a natural-language answer to the question.
+
+Me: Can you give me pseudocode for get_weather_data?
+AI: 1. Validate location string.
+2. Clamp forecast_days between 1 and 5.
+3. Try to call wttr.in with requests.get.
+4. If it fails, load mock data.
+5. Return dictionary with weather info.
+
+Me: That’s really helpful  I’ll implement that as my base.
